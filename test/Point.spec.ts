@@ -26,5 +26,13 @@ describe("test Point", () => {
         expect(p.x()).to.equal(1.0);
         expect(p.y()).to.equal(2.0);
     });
+
+    it("test clone point", () => {
+        const p1 = new Point([0.0,0.0]);
+        const copy = p1.clone();
+        copy.translate(1.0,1.0);
+        expect(p1.x()).to.equal(0.0);  // and not 1.0
+        expect(p1.y()).to.equal(0.0); // and not 1.0
+    });
 });
 

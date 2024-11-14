@@ -30,10 +30,13 @@ export default class Point implements Geometry{
   }
 
   translate(dx:number,dy:number):void{
-    this.coordinate[0] += dx;   // this.x()+= dx
+    this.coordinate[0] += dx;   
     this.coordinate[1] += dy;
 
   }
 
-  
+  clone(): Geometry {
+    const newCoordinate = [...this.coordinate];
+    return new Point(newCoordinate);
+  }
 }
