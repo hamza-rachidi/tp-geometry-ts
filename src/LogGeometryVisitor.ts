@@ -8,7 +8,7 @@ export default class LogGeometryVisitor implements GeometryVisitor{
 
     }
    
-    visitPoint(geom: Point) {
+    visitPoint(geom: Point):void  {
         if (geom.isEmpty()){
             this.log("Je suis un point vide.");
         }
@@ -17,7 +17,7 @@ export default class LogGeometryVisitor implements GeometryVisitor{
         }
     }
 
-    visitLineString(linestr: LineString) {
+    visitLineString(linestr: LineString):void  {
         if (linestr.isEmpty()){
             this.log("Je suis une polyligne vide.");
         }
