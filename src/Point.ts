@@ -47,12 +47,6 @@ export default class Point extends AbstractGeometry {
     return new Point(newCoordinate);
   }
 
-  getEnvelope():Envelope {
-    const builder = new EnvelopeBuilder();
-    builder.insert(this.getCoordinate());
-    return builder.build();
-  }
-
   accept( visitor:GeometryVisitor):void{
     visitor.visitPoint(this);
   }
