@@ -15,7 +15,6 @@ describe("test du visiteur", () => {
         const wkt = visitor.getResult();
         expect(wkt).to.equal("POINT EMPTY");
 
-        
     });
 
     it("test sur point non empty", () => {
@@ -34,6 +33,7 @@ describe("test du visiteur", () => {
         const l = new LineString([]);
         l.accept(visitor);
         const wkt = visitor.getResult();
+        expect(wkt).to.equal("LINESTRING EMPTY");
         
     }); 
 
@@ -45,6 +45,7 @@ describe("test du visiteur", () => {
         const l = new LineString([p1,p2]);
         l.accept(visitor);
         const wkt = visitor.getResult();
+        expect(wkt).to.equal("LINESTRING(3 4,2 3,)");
         
     }); 
 
