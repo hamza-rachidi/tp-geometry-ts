@@ -11,9 +11,7 @@ describe("test Envelope Builder", () => {
         const builder = new EnvelopeBuilder();
         expect(builder.build().toString()).to.equal("Enveloppe vide");
         builder.insert([0.0,1.0]);
-        //expect(builder.build().toString()).to.equal("0,1,0,1");
         builder.insert([2.0,0.0]);
-        //expect(builder.build().toString()).to.equal("0,1,2,1");
         builder.insert([1.0,3.0]);
         const result = builder.build().toString();
         expect(result).to.equal("0,0,2,3");

@@ -42,5 +42,13 @@ describe("test LineString", () => {
         expect(l.getPointN(0).getCoordinate()).to.deep.equal([3.0,4.0]);
         expect(l.getPointN(1).getCoordinate()).to.deep.equal([2.0,3.0]);
     });
+
+    it("test getEnvelope à partir de LineString ", () => {
+        const p1 = new Point([0.0,1.0]);
+        const p2 = new Point([2.0,0.0]);
+        const p3 = new Point([1.0,3.0]);
+        const l = new LineString([p1,p2,p3]);
+        expect(l.getEnvelope().toString()).to.equal("0,0,2,3");
+    });
 });
 

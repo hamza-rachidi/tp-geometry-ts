@@ -1,6 +1,7 @@
 import "mocha";
 import { expect } from "chai";
 import Point from "../src/Point";
+import EnvelopeBuilder from "../src/EnvelopeBuilder";
 
 describe("test Point", () => {
 
@@ -33,6 +34,11 @@ describe("test Point", () => {
         copy.translate(1.0,1.0);
         expect(p1.x()).to.equal(0.0);  // and not 1.0
         expect(p1.y()).to.equal(0.0); // and not 1.0
+    });
+
+    it("test getEnvelope à partir de Point ", () => {
+        const p1 = new Point([3.0,4.0]);
+        expect(p1.getEnvelope().toString()).to.equal("3,4,3,4");
     });
 });
 
