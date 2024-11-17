@@ -1,6 +1,7 @@
 import Geometry from "./Geometry";
 import Point from "./Point";
 import LineString from "./LineString";
+import GeometryCollection from "./GeometryCollection";
 
 
 export default class WktWriter {
@@ -25,11 +26,29 @@ export default class WktWriter {
           texte += geometry.getPointN(i).x();
           texte += ' ';
           texte += geometry.getPointN(i).y();
+          if (i==geometry.getNumPoints()-1){
+            break;
+          }
           texte += ',';
         }
         return texte+")";
 
-      }
+      }} else if ( geometry instanceof GeometryCollection )
+        {
+        if ( geometry.isEmpty() ){
+          return "GEOMETRYCOLLECTION EMPTY";} else{
+    
+            let texte:string = 'GEOMETRYCOLLECTION(';
+            for ( let i=0;i<geometry.getNumGeometries();i++){
+              texte += this.write(geometry.getGeometryN(i));
+              if (i==geometry.getNumGeometries()-1){
+                break;
+            }
+              texte += ',' ;
+            }
+            return texte+")";
+    
+          }
     
   }else{
       throw new TypeError("geometry type not supported");

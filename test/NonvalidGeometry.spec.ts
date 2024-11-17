@@ -18,7 +18,7 @@ describe("Nonsense test juste pour tester autre type de Géométrie dans Wkt", (
 
         const visitor = new WktVisitor();
         x.accept(visitor);
-        expect(visitor.getResult()).to.equal("None"); 
+        expect(visitor.getResult()).to.equal(""); 
 
 
 

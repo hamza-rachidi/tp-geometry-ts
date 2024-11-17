@@ -18,6 +18,6 @@ describe("test de AbstractGeometry", () => {
         expect(emptypoint.asText()).to.equal("POINT EMPTY");
         expect(emptylinestring.asText()).to.equal("LINESTRING EMPTY");
         expect(p1.asText()).to.equal("POINT(3 4)");
-        expect(points.asText()).to.equal("LINESTRING(3 4,2 3,)");
+        expect(points.asText()).to.equal("LINESTRING(3 4,2 3)");
     });
 });
