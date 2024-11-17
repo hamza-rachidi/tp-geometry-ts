@@ -3,6 +3,7 @@ import { expect } from "chai";
 import Point from "../src/Point";
 import LineString from "../src/LineString";
 import WktWriter from "../src/WktWriter";
+import NonvalidGeometry from "../src/NonvalidGeometry";
 
 
 describe("test de conversion d'une géométrie au format WKT", () => {
@@ -34,6 +35,13 @@ describe("test de conversion d'une géométrie au format WKT", () => {
         
     });
 
+    it("test sur cette classe", () => {
+        
+        const x = new NonvalidGeometry();
+        const writer = new WktWriter();
+        expect(()=> {writer.write(x)}).to.throw(TypeError,"geometry type not supported");
+        
+    });
 
     
 });
